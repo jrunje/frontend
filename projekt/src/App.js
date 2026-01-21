@@ -1,13 +1,26 @@
-
+import { BrowserRouter, Routes, Route } from "react-router";
 import './App.css';
-import Home from './Pages/Home.js';
+import Nav from './components/Nav.js';
+import Footer from './components/Footer.js';
+import Home from './Pages/Naslovnica.js';
+import Blog from "./Pages/Blog";
+import Blogsingle from "./Pages/Blogsingle.js";
+import Onama from "./Pages/Onama";
 
 function App() {
   return (
-  <>
-   <Home/>
- 
-</>
+  
+  <BrowserRouter>
+  <Nav />
+    <Routes>
+      <Route path="/" element={<Home/>} />
+    
+      <Route path="/onama" element={<Onama/>} />
+      <Route path="/blog" element={<Blog/>} />
+    </Routes>
+  <Footer />
+  </BrowserRouter>
+
   );
   
 }
