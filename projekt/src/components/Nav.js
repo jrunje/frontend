@@ -39,7 +39,7 @@ const Nav = () => {
               </ul>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-end" to="#">ACCESSORIES</Link>
+              <Link className="nav-link text-end" to="#">Kontakt</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link text-end" to="#">STORES</Link>
