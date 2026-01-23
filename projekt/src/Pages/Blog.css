@@ -1,5 +1,5 @@
-.blog-post img{
-    aspect-ratio: 16/9;
+.blog-post img {
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     width: 100%;
 }
@@ -8,8 +8,8 @@
     font-size: 2rem;
 }
 
-@media (max-width: 440px) {
-    .blog-post img{
-        aspect-ratio: 16/9;
+@media(min-width: 440px){
+    .blog-post img {
+        aspect-ratio: 16 / 9;
     }
 }

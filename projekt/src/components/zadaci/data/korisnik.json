@@ -1,0 +1,17 @@
+{
+        "ime" : "Jelena",
+        "prezime" : "Runje",
+        "godine" : 38,
+        "vozacka" : true,
+        "vjestine" : [
+            "HTML", 
+            "CSS", 
+            "JavaScript", 
+            "React"
+        ],
+        "adresa" : {
+            "ulica" : "Koludrovac 8",
+            "grad" : "Kaštela",
+            "pbroj" : 21217
+        }
+}
