@@ -1,17 +1,13 @@
+
+
 const Kontakt = () => {
-    return(
-        <>
-   
-
+  return (
+    <>
         <div className="container">
-           
-            <h1>Blog</h1>
-
-        
-            </div>
-
-     
-</>
-    );
+            <h1>Kontakt</h1>
+        </div>
+    </>
+  );
 };
+
 export default Kontakt;

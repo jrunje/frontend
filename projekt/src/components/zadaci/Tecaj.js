@@ -1,4 +1,4 @@
-import tecaj from './data/tecaj.json';
+import tecaji from './data/tecaj.json';
 
 const Tecaj = () => { 
   return (
@@ -19,7 +19,7 @@ const Tecaj = () => {
                 </thead>
                 <tbody>
                     {
-                        tecaj.map((tecaj) => (
+                        tecaji.map((tecaj) => (
                         <tr>
                             <td>{tecaj.drzava}</td>
                             <td>{tecaj.valuta}</td>

@@ -1,13 +1,13 @@
 
 
-const Onama = () => {
+const Usluge = () => {
   return (
     <>
         <div className="container">
-            <h1>O nama</h1>
+            <h1>Usluge</h1>
         </div>
     </>
   );
 };
 
-export default Onama;
+export default Usluge;

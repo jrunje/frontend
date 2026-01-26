@@ -35,7 +35,7 @@ a{
 }
 
 .home-2 {
-    background-image: url("./img/home-2.jpg");
+    background-image: url('./img/home-2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -437,4 +437,3 @@ article iframe{
     }
 
 }
-
