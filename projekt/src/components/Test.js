@@ -16,7 +16,7 @@ const Test = () => {
   return (
     <>
         <div className="container">
-          <p className="danger">Hello world</p>
+          <p className="danger">Hellog world</p>
         <h2>Nesto novo</h2>
         </div>
     </>
