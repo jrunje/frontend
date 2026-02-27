@@ -73,8 +73,8 @@ const Nav = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-end" to="/lokali">
-                Lokali
+              <Link className="nav-link text-end" to="/vozila">
+                Vozila
               </Link>
             </li>
             {name ? (
