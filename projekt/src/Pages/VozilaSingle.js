@@ -2,17 +2,16 @@ import "./Blog.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
-import Author from "../components/Author";
 
 const BASE_URL = process.env.REACT_APP_API_URL
 
-const BlogSingle = () => {
+const VozilaSingle = () => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
 
   useEffect(() => {
     fetch(
-      `${BASE_URL}v2/posts?slug=${slug}&_embed`,
+      `${BASE_URL}vozila?slug=${slug}&_embed`,
     )
       .then((response) => response.json())
       .then((data) => setPost(data[0]));
@@ -30,7 +29,7 @@ const BlogSingle = () => {
           backgroundImage:
             "url(" +
             post._embedded["wp:featuredmedia"][0].media_details.sizes.full
-              .source_url +
+             .source_url +
             ")",
         }}
       >
@@ -40,7 +39,10 @@ const BlogSingle = () => {
               <div class="post-heading">
                 <h1>{post.title.rendered}</h1>
                 <h2 class="subheading"></h2>
-                <Author post={post} />
+                <span class="meta">
+                  
+                  {new Date(post.date).toLocaleDateString("hr-HR")}
+                </span>
               </div>
             </div>
           </div>
@@ -62,4 +64,4 @@ const BlogSingle = () => {
   );
 };
 
-export default BlogSingle;
+export default VozilaSingle;
