@@ -10,20 +10,20 @@ const Vozila = () => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
 
-  const [djelatnosti, setDjelatnosti] = useState([]);
-  const [izabranaDjelatnost, setIzabranaDjelatnost] = useState("");
+  const [vozila, setVozila] = useState([]);
+  const [izabranoVozilo, setIzabranoVozilo] = useState("");
 
   useEffect(() => {
-    fetch(`${BASE_URL}v2/djelatnost`)
+    fetch(`${BASE_URL}marka`)
       .then((response) => response.json())
-      .then((data) => setDjelatnosti(data));
+      .then((data) => setVozila(data));
   }, []);
 
   useEffect(() => {
     setLoading(true);
 
-    let url = `${BASE_URL}v2/lokal?_embed`;
-    if (izabranaDjelatnost) url += "&djelatnost=" + izabranaDjelatnost;
+    let url = `${BASE_URL}vozila?_embed`;
+    if (izabranoVozilo) url += "&marka=" + izabranoVozilo;
 
     fetch(url)
       .then((response) => response.json())
@@ -31,21 +31,23 @@ const Vozila = () => {
         setPosts(data);
       })
       .finally(() => setLoading(false));
-  }, [izabranaDjelatnost]);
+  }, [izabranoVozilo]);
 
   return (
     <>
       {loading && <Loader />}
       <div className="blog-page">
         <div className="container">
-          <h1>Lokali</h1>
+          <h1>Vozila</h1>
           <div className="row mb-4">
             <div className="col-6">
-              <select className="form-select" value={izabranaDjelatnost} onChange={(e) => setIzabranaDjelatnost(e.target.value)}>
-                <option value="">Sve djelatnosti</option>
-                {djelatnosti.map((djelatnost) => (
-                  <option key={djelatnost.id} value={djelatnost.id}>{djelatnost.name}</option>
-                ))}
+              <select className="form-select" value={izabranoVozilo} onChange={(e) => setIzabranoVozilo(e.target.value)}>
+                <option value="">Sva vozila</option>
+                {vozila.map((marka) => (
+  <option key={marka.id} value={marka.id}>
+    {marka.name}
+  </option>
+))}
               </select>
             </div>
           </div>
@@ -58,7 +60,7 @@ const Vozila = () => {
               return (
                 <div key={post.id} className="col-md-4 mb-4 blog-post">
                   {image && (
-                    <Link to={'/lokal/' + post.slug}>
+                    <Link to={'/vozila/' + post.slug}>
                     <img
                       src={image}
                       className="mb-3"
@@ -66,7 +68,7 @@ const Vozila = () => {
                     />
                     </Link>
                    )}
-                  <Link to={'/lokal/' + post.slug}>   
+                  <Link to={'/vozila/' + post.slug}>   
                     <h2>{post.title.rendered}</h2>
                   </Link>
 

@@ -1,4 +1,5 @@
 import "./Blog.css";
+import '../Gutenberg.css';
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
@@ -12,7 +13,7 @@ const BlogSingle = () => {
 
   useEffect(() => {
     fetch(
-      `${BASE_URL}v2/posts?slug=${slug}&_embed`,
+      `${BASE_URL}posts?slug=${slug}&_embed`,
     )
       .then((response) => response.json())
       .then((data) => setPost(data[0]));
@@ -23,9 +24,9 @@ const BlogSingle = () => {
   }
 
   return (
-    <div className="blog-single">
+    <div classnameName="blog-single">
       <div
-        class="masthead"
+        classname="masthead"
         style={{
           backgroundImage:
             "url(" +
@@ -34,12 +35,12 @@ const BlogSingle = () => {
             ")",
         }}
       >
-        <div class="container position-relative px-4 px-lg-5">
-          <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-              <div class="post-heading">
+        <div classname="container position-relative px-4 px-lg-5">
+          <div classname="row gx-4 gx-lg-5 justify-content-center">
+            <div classname="col-md-10 col-lg-8 col-xl-7">
+              <div classname="post-heading">
                 <h1>{post.title.rendered}</h1>
-                <h2 class="subheading"></h2>
+                <h2 classname="subheading"></h2>
                 <Author post={post} />
               </div>
             </div>
@@ -47,17 +48,18 @@ const BlogSingle = () => {
         </div>
       </div>
 
-      <article class="mb-4">
-        <div class="container px-4 px-lg-5">
-          <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-              <div
-                dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-              ></div>
-            </div>
-          </div>
-        </div>
-      </article>
+      <article className="mb-4">
+  <div className="container px-4 px-lg-5">
+    <div className="row gx-4 gx-lg-5 justify-content-center">
+      <div className="col-md-10 col-lg-8 col-xl-7">
+        <div
+          className="entry-content gutenberg-content"
+          dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+        />
+      </div>
+    </div>
+  </div>
+</article>
     </div>
   );
 };

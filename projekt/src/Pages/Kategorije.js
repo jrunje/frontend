@@ -17,7 +17,7 @@ const Kategorije = () => {
   const [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
-    fetch(`${BASE_URL}v2/categories`)
+    fetch(`${BASE_URL}categories`)
       .then((response) => response.json())
       .then((data) => setCategory(data));
   }, []);
@@ -29,7 +29,7 @@ const Kategorije = () => {
     const per_page = 3;
 
     fetch(
-      `${BASE_URL}v2/posts?categories=${selectedCategory}&per_page=${per_page}&current_page=${currentPage + 1}&_embed`,
+      `${BASE_URL}posts?categories=${selectedCategory}&per_page=${per_page}&current_page=${currentPage + 1}&_embed`,
     )
       .then((response) => {
         const totalPages = response.headers.get("X-WP-TotalPages");

@@ -9,13 +9,18 @@ const VozilaSingle = () => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
 
-  useEffect(() => {
-    fetch(
-      `${BASE_URL}vozila?slug=${slug}&_embed`,
-    )
-      .then((response) => response.json())
-      .then((data) => setPost(data[0]));
-  }, [slug]);
+useEffect(() => {
+  if (!slug) return;
+
+  fetch(`${BASE_URL}vozila?slug=${slug}&_embed`)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.length > 0) {
+        setPost(data[0]);
+      }
+    })
+    .catch((err) => console.error("Fetch error:", err));
+}, [slug]);
 
   if (!post) {
     return <Loader />;
@@ -24,7 +29,7 @@ const VozilaSingle = () => {
   return (
     <div className="blog-single">
       <div
-        class="masthead"
+        className="masthead"
         style={{
           backgroundImage:
             "url(" +

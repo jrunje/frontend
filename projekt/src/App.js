@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
 import "./App.css";
+import './Gutenberg.css';
 
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
@@ -10,8 +11,7 @@ import BlogSingle from "./Pages/BlogSingle";
 import Onama from "./Pages/Onama";
 import Usluge from "./Pages/Usluge";
 import Kontakt from "./Pages/Kontakt";
-import Lokali from "./Pages/Vozila";
-import LokaliSingle from "./Pages/VozilaSingle";
+
 
 import Profil from "./components/zadaci/Profil";
 import Korisnici from "./components/zadaci/Korisnici";
@@ -27,8 +27,9 @@ import Settings from "./Pages/Admin/Settings";
 
 import AuthorsTable from "./Pages/AuthorsTable";
 import AuthorSingle from "./Pages/AuthorSingle";
-import VozilaSingle from "./Pages/VozilaSingle";
 import Vozila from "./Pages/Vozila";
+import VozilaSingle from "./Pages/VozilaSingle";
+
 
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
         <Route path="/kategorije" element={<Kategorije />} />
 
         <Route path="/vozila" element={<Vozila />} />
-        <Route path="/vozilo/:slug" element={<VozilaSingle />} />
+        <Route path="/vozila/:slug" element={<VozilaSingle />} />
 
         <Route path="/profil" element={<Profil />} />
         <Route path="/korisnici" element={<Korisnici />} />
